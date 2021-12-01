@@ -17,12 +17,12 @@ const Home = () => {
      How can we help your with your mortgage?
      </WelcomeText>
      <NavMenu>
-     <SectionBtn to="/">
+     <SectionBtn to="/monthlypayment">
        <p style={{margin:'0px', lineHeight:'0', textAlign:'center'}}>Monthly Mortgage Payment</p>
       </SectionBtn>
-     <SectionBtn to="/">Mortgage Payoff</SectionBtn>
-     <SectionBtn to="/">What can I afford?</SectionBtn>
-     <SectionBtn to="/">Homebuyers Glossary</SectionBtn>
+     <SectionBtn to="/payoff">Mortgage Payoff</SectionBtn>
+     <SectionBtn to="/affordability">What can I afford?</SectionBtn>
+     <SectionBtn to="/glossary">Homebuyers Glossary</SectionBtn>
      </NavMenu>
     </div>
   );
