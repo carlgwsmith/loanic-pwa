@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Header from '../Shared/Header';
 import Sidebar from '../Nav/Sidebar';
+import { CalcButton } from '../Shared/SharedElements';
 
 const Monthlypayment = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -37,6 +38,7 @@ const Monthlypayment = () => {
       <input type="number" style={inputStyle} onChange={(val) => setLoanLength(val.target.value)}/>
       <p  style={label}>Interest Rate</p>
       <input type="number" style={inputStyle} onChange={(val) => setInterestRate(val.target.value)}/>
+      <CalcButton>Find Out Monthly Payment</CalcButton>
     </div>
   );
 }

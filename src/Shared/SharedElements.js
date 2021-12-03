@@ -96,4 +96,12 @@ export const Hamburger = styled.div`
 text-align:right;
 color:white;
 padding-right:10px;
-grid-area: Hamburger`
+grid-area: Hamburger;
+`
+
+export const CalcButton = styled.button`
+padding:20px 30px;
+display:block;
+margin-left:auto;
+margin-right:auto;
+`
