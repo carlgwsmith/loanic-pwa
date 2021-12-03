@@ -66,3 +66,34 @@ grid-template-columns: 1fr;
 grid-template-rows: repeat(6, 80px);
 text-align:center;
   `
+export const HeaderContainer = styled.div`
+ display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 0.6fr 1.4fr; 
+  gap: 0px 0px;
+  background-color:#41CC89;
+  padding:10px 5px 10px 5px; 
+  grid-template-areas: 
+    "Back Hamburger"
+    "Title Title"; 
+`
+export const HeaderTitle = styled.div`
+grid-area: Title;
+font-family:'Poppins', sans-serif;
+font-size:1.4rem;
+padding:20px;
+color:white;
+font-weight:400;
+`
+
+export const HeaderBack = styled.div`
+text-align:left;
+padding-left:20px;
+grid-area: Back;`
+
+export const Hamburger = styled.div`
+text-align:right;
+color:white;
+padding-right:10px;
+grid-area: Hamburger`
