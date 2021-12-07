@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Header from '../Shared/Header';
 import Sidebar from '../Nav/Sidebar';
 import { CalcButton } from '../Shared/SharedElements';
+import { useNavigate } from 'react-router-dom';
 
 const Monthlypayment = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,6 +14,7 @@ const Monthlypayment = () => {
   const toggle = () => {
     setIsOpen(!isOpen)
   }
+  let navigate = useNavigate();
   const inputStyle={
     padding:'8px',
     fontSize:'20px',
@@ -24,6 +26,18 @@ const Monthlypayment = () => {
     fontFamily:'"Poppins", sans-serif',
     paddingTop:'10px',
     margin:'0px'
+  }
+
+  function handleClick(e) {
+    e.preventDefault()
+    navigate('/monthlyresults', {
+      state: {
+        homePrice: homePrice,
+        downPayment: downPayment,
+        loanLength: loanLength,
+        interestRate: interestRate
+      }
+    })
   }
 
   return (
@@ -38,7 +52,7 @@ const Monthlypayment = () => {
       <input type="number" style={inputStyle} onChange={(val) => setLoanLength(val.target.value)}/>
       <p  style={label}>Interest Rate</p>
       <input type="number" style={inputStyle} onChange={(val) => setInterestRate(val.target.value)}/>
-      <CalcButton>Find Out Monthly Payment</CalcButton>
+      <CalcButton onClick={handleClick}>Find Out Monthly Payment</CalcButton>
     </div>
   );
 }

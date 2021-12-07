@@ -22,7 +22,7 @@ const Affordability = () => {
   }
   return (
     <div>
-      <Header name="Payoff Results" toggle={toggle} back="/affordability"/>
+      <Header name="Affordability Results" toggle={toggle} back="/affordability"/>
       <Sidebar isOpen={isOpen} toggle={toggle}/>
       <p style={label}>Home Price</p>
     </div>

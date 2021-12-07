@@ -29,10 +29,18 @@ const Payoff = () => {
     paddingTop:'10px',
     margin:'0px'
   }
-  function handleClick() {
-    navigate('/payoffresults')
-  
+  function handleClick(e) {
+    e.preventDefault()
+    navigate('/payoffresults', {
+      state: {
+        homePrice: homePrice,
+        downPayment: downPayment,
+        loanLength: loanLength,
+        interestRate: interestRate
+      }
+    })
   }
+
 
   return (
     <div>
@@ -46,7 +54,7 @@ const Payoff = () => {
       <input type="number" style={inputStyle} onChange={(val) => setLoanLength(val.target.value)}/>
       <p  style={label}>Interest Rate</p>
       <input type="number" style={inputStyle} onChange={(val) => setInterestRate(val.target.value)}/>
-      <CalcButton onClick={handleClick()}>Find Out Monthly Payment</CalcButton>
+      <CalcButton onClick={handleClick}>Find Out Monthly Payment</CalcButton>
     </div>
   );
 }
