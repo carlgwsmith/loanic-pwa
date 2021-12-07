@@ -63,7 +63,6 @@ transition: 0.2s ease-in-out;
   color:#fcd115;
 }
 &:hover{
-  letter-spacing:.2em;
   color:#fcd115;
   transition: 0.2s ease-in-out;
 }
