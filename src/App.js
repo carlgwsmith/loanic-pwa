@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import React, {useState} from 'react';
 import Home from './Pages/Home';
+import Login from './Pages/Login';
 import Affordability from './Pages/Affordability';
 import AffordabilityResults from './Pages/Results/Affordability';
 import Glossary from './Pages/Glossary';
@@ -15,7 +16,9 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
     <div className="App">
       <Routes>
-        <Route path="/" exact element={<Home />}/>
+        <Route
+         path="/" exact element={<Home />}/>
+         <Route path="/" exact element={<Login />}/>
         <Route path="/glossary" exact element={<Glossary />}/>
         <Route path="/affordability" exact element={<Affordability />}/>
         <Route path="/affordabilityresults" exact element={<AffordabilityResults />}/>
