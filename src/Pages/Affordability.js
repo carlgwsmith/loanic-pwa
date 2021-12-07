@@ -10,7 +10,7 @@ const Affordability = () => {
   }
   return (
     <div>
-      <Header name="What can I afford?" toggle={toggle}/>
+      <Header name="What can I afford?" toggle={toggle} back="/"/>
       <Sidebar isOpen={isOpen} toggle={toggle}/>
     </div>
   );

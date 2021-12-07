@@ -10,7 +10,7 @@ const Glossary = () => {
   }
   return (
     <div>
-      <Header name="Glossary" toggle={toggle}/>
+      <Header name="Glossary" toggle={toggle} back="/"/>
       <Sidebar isOpen={isOpen} toggle={toggle}/>
     </div>
   );
