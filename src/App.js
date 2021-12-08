@@ -16,9 +16,8 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
     <div className="App">
       <Routes>
-        <Route
-         path="/" exact element={<Home />}/>
-         <Route path="/" exact element={<Login />}/>
+        <Route path="/" exact element={<Login />}/>
+        <Route path="/home" exact element={<Home />}/>
         <Route path="/glossary" exact element={<Glossary />}/>
         <Route path="/affordability" exact element={<Affordability />}/>
         <Route path="/affordabilityresults" exact element={<AffordabilityResults />}/>
