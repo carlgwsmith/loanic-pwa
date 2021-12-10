@@ -3,12 +3,13 @@ import {db} from '../firebase'
 import {collection, getDocs} from 'firebase/firestore'
 import   {onAuthStateChanged} from "firebase/auth";
 import { auth } from "../firebase";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
  
 const Userinfo = () => {
   const [users, setUsers] = useState([])
   const [user, setUser] = useState([])
   const usersCollectionsRef = collection(db, 'users')
+  // const docRef = doc(db, "users");
   const [age, setAge] = useState(0);
   const [dp, setDP] = useState(0);
   const [hp, setHP] = useState(0);
@@ -35,6 +36,7 @@ const Userinfo = () => {
     }
     getUsers()
     console.log(users)
+
   }, []);
 
   const sendInfo = async () => {
