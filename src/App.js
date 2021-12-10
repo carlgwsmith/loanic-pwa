@@ -9,6 +9,7 @@ import Monthlypayment from './Pages/MonthlyPayment';
 import MonthlyResults from './Pages/Results/Monthly'
 import Payoff from './Pages/Payoff';
 import PayoffResults from './Pages/Results/Payoff'
+import Userinfo from './Pages/UserInfo';
 import './App.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/monthlyresults" exact element={<MonthlyResults />}/>
         <Route path="/payoff" exact element={<Payoff />}/>
         <Route path="/payoffresults" exact element={<PayoffResults />}/>
+        <Route path="/userinfo" exact element={<Userinfo />}/>
       </Routes>
     </div>
     </Router>

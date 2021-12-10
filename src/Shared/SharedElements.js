@@ -66,6 +66,15 @@ grid-template-columns: 1fr;
 grid-template-rows: repeat(6, 80px);
 text-align:center;
   `
+  export const NavTopMenu = styled.div`
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px;
+  margin-bottom:20px;
+  text-align:center;
+  border-bottom:1px solid #c9c9c9;
+  padding-bottom:20px;
+    `
 export const HeaderContainer = styled.div`
  display: grid; 
   grid-auto-columns: 1fr; 
@@ -104,4 +113,14 @@ padding:20px 30px;
 display:block;
 margin-left:auto;
 margin-right:auto;
+`
+export const HomeBtn = styled.a`
+padding: 10px 20px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+border: 2px solid #cccaca;
+background-color: #f9f9f9;
+color: #444;
+border-radius: 30px;
 `

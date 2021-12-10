@@ -5,7 +5,8 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { doc, setDoc } from "firebase/firestore"; 
+import { auth, db } from "../firebase";
 import { Header, Logo, Wordmark, Subtitle, WelcomeText, SectionBtn, NavMenu } from '../Shared/SharedElements';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,6 +21,16 @@ function Login() {
 
   let navigate = useNavigate()
   const [user, setUser] = useState({});
+
+  const inputStyle = {
+    marginBottom:'5px',
+    display:'block',
+    marginLeft:'auto',
+    marginRight:'auto',
+    height:'45px',
+    width:'300px',
+    borderRadius:'5px'
+  }
 
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -42,9 +53,6 @@ function Login() {
         registerEmail,
         registerPassword
       );
-      // setRegistering(false)
-      // setLoggingIn(false)
-      // setLoggedIn(true)
     } catch (error) {
       console.log(error.message);
     }
@@ -83,6 +91,7 @@ function Login() {
   function handleDash (){
     navigate('/home')
   }
+  
   if(registering && !loggingIn && !loggedIn){
     return(
       <div>
@@ -102,12 +111,14 @@ function Login() {
           onChange={(event) => {
             setRegisterEmail(event.target.value);
           }}
+          style={inputStyle}
         />
         <input
           placeholder="Password..."
           onChange={(event) => {
             setRegisterPassword(event.target.value);
           }}
+          style={inputStyle}
         />
 
         <button onClick={register}> Create User</button>
@@ -138,12 +149,14 @@ function Login() {
           onChange={(event) => {
             setLoginEmail(event.target.value);
           }}
+          style={inputStyle}
         />
         <input
           placeholder="Password..."
           onChange={(event) => {
             setLoginPassword(event.target.value);
           }}
+          style={inputStyle}
         />
 
         <button onClick={login}> Login</button>
