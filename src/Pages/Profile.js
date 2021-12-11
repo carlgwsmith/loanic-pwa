@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import {useAuth} from '../context/AuthContext'
 import { Alert, Form, Button } from 'react-bootstrap'
 import Header from '../Shared/Header';
@@ -16,6 +16,9 @@ export default function Profile() {
     const homeValueRef = useRef()
     const downPaymentRef = useRef()
     const ageRef = useRef()
+    const [dp, setDP] = useState(0)
+    const [hv, setHV] = useState(0)
+    const [build, setBuilt] = useState(0)
 
   const toggle = () => {
     setIsOpen(!isOpen)
@@ -38,6 +41,29 @@ export default function Profile() {
     setLoading(false)
     console.log('success')
 }
+
+useEffect(() => {
+  getProfile()
+}, [])
+
+function getProfile (){
+  database.users.doc(currentUser.uid).get().then(
+    doc => {
+        let data = (doc.data());
+        console.log(data);
+        // if(data === undefined){
+        //     console.log('first timer')
+        // }else{
+        //     const dataArray = Object.entries(data);
+        // setMultiSelections(dataArray.[0].[1])
+        // }
+        setBuilt(data.yearBuilt)
+        setHV(data.homeValue)
+        setDP(data.downPayment)
+    }
+  )
+}
+
 function handleSubmit(e){
   e.preventDefault();
   database.users.doc(currentUser.uid).set({
@@ -66,19 +92,19 @@ function deleteHouse(){
                             <Form.Label>
                               Home Value
                             </Form.Label>
-                            <Form.Control type="number" required ref={homeValueRef}/>
+                            <Form.Control type="number" required ref={homeValueRef} defaultValue={hv}/>
                         </Form.Group>
                         <Form.Group id="dp">
                             <Form.Label>
                              Down Payment
                             </Form.Label>
-                            <Form.Control type="number" required ref={downPaymentRef}/>
+                            <Form.Control type="number" required ref={downPaymentRef} defaultValue={dp}/>
                         </Form.Group>
                         <Form.Group id="age">
                             <Form.Label>
                               Year Built
                             </Form.Label>
-                            <Form.Control type="number" required ref={ageRef}/>
+                            <Form.Control type="number" required ref={ageRef} defaultValue={build}/>
                         </Form.Group>
                         <Button disabled={loading} type="submit" className="w-100 mt-2">Update House</Button>
                         <Button disabled={loading} onClick={deleteHouse} className="w-100 mt-2">Delete House</Button>
