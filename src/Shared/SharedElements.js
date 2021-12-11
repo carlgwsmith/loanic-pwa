@@ -3,7 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 
 export const Header = styled.div`
 /* background-image: url('../waves.svg');
-height:290px;
+height:320px;
 background-repeat: no-repeat;
 background-size: auto;
 background-position:bottom;
@@ -11,14 +11,14 @@ background-color:#00d084; */
 `
 export const Logo = styled.div`
 background-color:#00d084;
-height:100px;
+height:140px;
 padding-top:20px;
 /* margin: 7rem 1.25rem 2.5rem 1.25rem; */
 `
 export const Wordmark = styled.p`
 font-family:'Poppins', sans-serif;
 font-size:4em;
-margin: 0 1.25rem .25rem 1.25rem;
+margin: 0 1.45rem .25rem 1.25rem;
 color:white;
 line-height: 1;
 `

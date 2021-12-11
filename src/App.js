@@ -11,9 +11,17 @@ import Payoff from './Pages/Payoff';
 import PayoffResults from './Pages/Results/Payoff'
 import Userinfo from './Pages/UserInfo';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import Signup from './Pages/Signup';
+import SignIn from './Pages/SignIn';
+import { AuthProvider } from './context/AuthContext';
+import Profile from './Pages/Profile';
+import ForgotPassword from './Pages/ForgotPassword'
+import UpdateProfile from './Pages/UpdateProfile';
 
 function App() {
   return (
+    <AuthProvider>
     <Router basename={process.env.PUBLIC_URL}>
     <div className="App">
       <Routes>
@@ -27,9 +35,15 @@ function App() {
         <Route path="/payoff" exact element={<Payoff />}/>
         <Route path="/payoffresults" exact element={<PayoffResults />}/>
         <Route path="/userinfo" exact element={<Userinfo />}/>
+        <Route path="/signup" exact element={<Signup/>}/>
+        <Route path="/signin" exact element={<SignIn/>}/>
+        <Route path="/profile" exact element={<Profile/>}/>
+        <Route path="/passwordreset" exact element={<ForgotPassword/>}/>
+        <Route path="/update" exact element={<UpdateProfile/>}/>
       </Routes>
     </div>
     </Router>
+    </AuthProvider>
   );
 }
 
