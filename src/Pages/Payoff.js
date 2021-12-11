@@ -44,7 +44,7 @@ const Payoff = () => {
 
   return (
     <div>
-      <Header name="Mortgage Payoff" toggle={toggle} back="/"/>
+      <Header name="Mortgage Payoff" toggle={toggle} back="/home"/>
       <Sidebar isOpen={isOpen} toggle={toggle}/>
       <p style={label}>Home Price</p>
       <input type="number" style={inputStyle} onChange={(val) => setHomePrice(val.target.value)}/>

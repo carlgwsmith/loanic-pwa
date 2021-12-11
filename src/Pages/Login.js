@@ -5,7 +5,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, getDoc, collection } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { Header, Logo, Wordmark, Subtitle, WelcomeText, SectionBtn, NavMenu } from '../Shared/SharedElements';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +18,8 @@ function Login() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggingIn, setLoggingIn] = useState(true)
   const [registering, setRegistering] = useState(false)
+
+  const usersCollectionsRef = collection(db, 'users')
 
   let navigate = useNavigate()
   const [user, setUser] = useState({});
@@ -53,11 +55,17 @@ function Login() {
         registerEmail,
         registerPassword
       );
+      createUserDoc()
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  const createUserDoc = async () =>{
+    await setDoc(doc(db, "users", registerEmail), {
+      email: registerEmail
+    });
+  }
   const login = async () => {
     try {
       setLoggingIn(false)
@@ -182,7 +190,7 @@ if (loggedIn && !loggingIn && !registering) {
      </Header>
 
       <h4> User Logged In: </h4>
-      {user?.email}
+      <h3>{user?.email}</h3>
 
       <button onClick={logout}> Sign Out </button>
       <button onClick={handleDash}>Go To Dashboard</button>

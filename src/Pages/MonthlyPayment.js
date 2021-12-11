@@ -42,7 +42,7 @@ const Monthlypayment = () => {
 
   return (
     <div>
-      <Header name="Monthly Payment Calculator" toggle={toggle} back="/"/>
+      <Header name="Monthly Payment Calculator" toggle={toggle} back="/home"/>
       <Sidebar isOpen={isOpen} toggle={toggle}/>
       <p style={label}>Home Price</p>
       <input type="number" style={inputStyle} onChange={(val) => setHomePrice(val.target.value)}/>
