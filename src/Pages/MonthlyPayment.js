@@ -48,9 +48,9 @@ const Monthlypayment = () => {
       <input type="number" style={inputStyle} onChange={(val) => setHomePrice(val.target.value)}/>
       <p  style={label}>Down Payment</p>
       <input type="number" style={inputStyle} onChange={(val) => setDownPayment(val.target.value)}/>
-      <p  style={label}>Mortgage Length</p>
+      <p  style={label}>Mortgage Length (years)</p>
       <input type="number" style={inputStyle} onChange={(val) => setLoanLength(val.target.value)}/>
-      <p  style={label}>Interest Rate</p>
+      <p  style={label}>Interest Rate (%)</p>
       <input type="number" style={inputStyle} onChange={(val) => setInterestRate(val.target.value)}/>
       <CalcButton onClick={handleClick}>Find Out Monthly Payment</CalcButton>
     </div>

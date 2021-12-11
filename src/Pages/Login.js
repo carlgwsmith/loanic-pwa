@@ -9,6 +9,7 @@ import { doc, setDoc, getDoc, collection } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { Header, Logo, Wordmark, Subtitle, WelcomeText, SectionBtn, NavMenu } from '../Shared/SharedElements';
 import { useNavigate } from 'react-router-dom';
+import UserInfo from './UserInfo'
 
 function Login() {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -59,11 +60,15 @@ function Login() {
     } catch (error) {
       console.log(error.message);
     }
+    navigate("/home", { replace: true });
   };
 
   const createUserDoc = async () =>{
     await setDoc(doc(db, "users", registerEmail), {
-      email: registerEmail
+      email: registerEmail,
+      age: 0,
+      downPayment:0,
+      homeprice:0
     });
   }
   const login = async () => {
@@ -191,7 +196,9 @@ if (loggedIn && !loggingIn && !registering) {
 
       <h4> User Logged In: </h4>
       <h3>{user?.email}</h3>
-
+      <div style={{paddingTop:'20px', borderTop:'1px solid'}}>
+        <UserInfo email={user?.email}/>
+      </div>
       <button onClick={logout}> Sign Out </button>
       <button onClick={handleDash}>Go To Dashboard</button>
     </div>

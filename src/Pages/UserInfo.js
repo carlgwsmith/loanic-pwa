@@ -6,12 +6,12 @@ import { doc, setDoc, getDoc, collection, getDocs } from "firebase/firestore";
 import Header from '../Shared/Header';
 import Sidebar from '../Nav/Sidebar';
  
-const Userinfo = () => {
+const Userinfo = (props) => {
   const [users, setUsers] = useState([])
   const [user, setUser] = useState([])
   const [editUser, setEditUser] = useState(false)
-  const usersCollectionsRef = collection(db, 'users')
-  const docRef = doc(db, "users", 'FSDADSFSDF@GMAIL.Cd');
+  // const usersCollectionsRef = collection(db, 'users')
+  const docRef = doc(db, "users", props.email);
   const [age, setAge] = useState(0);
   const [dp, setDP] = useState(0);
   const [hp, setHP] = useState(0);
@@ -39,7 +39,10 @@ useEffect(() => {
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser.email);
   });
+  console.log(props.email)
 }, [])
+
+
 
   useEffect(() => {
     const getUsers = async () => {
@@ -71,9 +74,7 @@ useEffect(() => {
 
   return (
     <div>
-      <Header name="User Info" toggle={toggle} back="/home"/>
       <div style={{marginTop:'15px'}}>
-      {user}'s Profile
           <div>
           <h1>Age: {age}</h1>
           <h1>Home Value: ${hp}</h1>
