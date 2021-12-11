@@ -57,9 +57,9 @@ function getProfile (){
         //     const dataArray = Object.entries(data);
         // setMultiSelections(dataArray.[0].[1])
         // }
-        setBuilt(data.yearBuilt)
-        setHV(data.homeValue)
-        setDP(data.downPayment)
+        // setBuilt(data.yearBuilt)
+        // setHV(data.homeValue)
+        // setDP(data.downPayment)
     }
   )
 }

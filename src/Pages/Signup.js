@@ -5,6 +5,7 @@ import { AuthProvider } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import {Header, Wordmark, Logo, Subtitle} from '../Shared/SharedElements'
+import {database} from "../firebase"
 
 export default function Signup() {
     let navigate = useNavigate()
@@ -13,7 +14,7 @@ export default function Signup() {
     const passwordConfirmRef = useRef()
     const [error, setError]= useState('')
     const [loading, setLoading] = useState(false)
-
+    const { currentUser } = useAuth()
     const {signup} = useAuth()
 
     async function handleSubmit(e){
@@ -26,6 +27,11 @@ export default function Signup() {
             setLoading(true)
             signup(emailRef.current.value, passwordRef.current.value)
             navigate("/home", { replace: true });
+            database.users.doc(currentUser.uid).set({
+                homeValue: 0,
+                yearBuilt: 0,
+                downPayment: 0
+            });
         }
         catch{
             setError('Failed')
