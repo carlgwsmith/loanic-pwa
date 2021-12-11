@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/loanic-pwa/static/css/main.543dd4e5.chunk.css",
-    "main.js": "/loanic-pwa/static/js/main.9ea3b384.chunk.js",
-    "main.js.map": "/loanic-pwa/static/js/main.9ea3b384.chunk.js.map",
+    "main.js": "/loanic-pwa/static/js/main.810489d6.chunk.js",
+    "main.js.map": "/loanic-pwa/static/js/main.810489d6.chunk.js.map",
     "runtime-main.js": "/loanic-pwa/static/js/runtime-main.51c83140.js",
     "runtime-main.js.map": "/loanic-pwa/static/js/runtime-main.51c83140.js.map",
     "static/css/2.383c0125.chunk.css": "/loanic-pwa/static/css/2.383c0125.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.383c0125.chunk.css",
     "static/js/2.cfd3a94f.chunk.js",
     "static/css/main.543dd4e5.chunk.css",
-    "static/js/main.9ea3b384.chunk.js"
+    "static/js/main.810489d6.chunk.js"
   ]
 }
