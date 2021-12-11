@@ -25,7 +25,6 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
     <div className="App">
       <Routes>
-        <Route path="/" exact element={<Login />}/>
         <Route path="/home" exact element={<Home />}/>
         <Route path="/glossary" exact element={<Glossary />}/>
         <Route path="/affordability" exact element={<Affordability />}/>
@@ -36,7 +35,7 @@ function App() {
         <Route path="/payoffresults" exact element={<PayoffResults />}/>
         <Route path="/userinfo" exact element={<Userinfo />}/>
         <Route path="/signup" exact element={<Signup/>}/>
-        <Route path="/signin" exact element={<SignIn/>}/>
+        <Route path="/" exact element={<SignIn/>}/>
         <Route path="/profile" exact element={<Profile/>}/>
         <Route path="/passwordreset" exact element={<ForgotPassword/>}/>
         <Route path="/update" exact element={<UpdateProfile/>}/>

@@ -14,7 +14,7 @@ const Home = () => {
     setError('')
     try {
       await logout()
-      navigate("/signin", { replace: true });
+      navigate("/", { replace: true });
       
     } catch (error) {
       
